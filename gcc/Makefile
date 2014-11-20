@@ -30,7 +30,7 @@ CFLAGS=-std=c99 -g -g3 -Wdeclaration-after-statement
 CCFLAGS=-ffunction-sections -fdata-sections -nostartfiles -g -g3 -Wall -Wextra
 CXXFLAGS=-fno-exceptions -fno-rtti -g -g3 -nostartfiles -Wall -Wextra
 
-LD:=$(ARCH)-g++
+LD:=$(ARCH)-gcc
 LDFLAGS:=-Wl,-eResetISR,--gc-sections,-marmelf
 
 INCLUDE=$(INCLUDE_PATHS:%=-I%)

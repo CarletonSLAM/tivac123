@@ -44,8 +44,18 @@ PROGRAM_DEPLOY:=$(payload:%:=%.hex)
 CP:=cp
 TOUCH:=touch
 MKDIR:=mkdir -p
-FLASH:=lm4flash
-FLASHFLAGS:=-E -v
+FLASH_LINUX:=lm4flash
+FLASH_WIN:=lmflash
+FLASHFLAGS_LINUX:=-E -v
+FLASHFLAGS_WIN:=-r -v
+
+ifeq ($(OS),Windows_NT)
+	FLASH:=$(FLASH_WIN)
+	FLASHFLAGS:=$(FLASHFLAGS_WIN)
+else
+	FLASH:=$(FLASH_LINUX)
+	FLASHFLAGS:=$(FLASHFLAGS_LINUX)
+endif
 
 # include new .c files here
 

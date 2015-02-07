@@ -18,13 +18,15 @@ This isn't essential to build code for the Tiva C, but advanced users might find
 
 
 ## Debugging
-Debugging the Tiva C through (arm-none-eabi)GDB requires openocd version 0.8 or greater. 
-1. Install arm-none-eabi-gdb. This is included in the Windows package automatically, but Linux users must download and install the package separately.
+Real-time debugging the Tiva C through (arm-none-eabi)GDB requires openocd version 0.8 or greater. The `-g` must be added to `CFLAGS` if it doesn't exist already.
+
+
+1. Install `arm-none-eabi-gdb`. This is included in the Windows package automatically, but Linux users must download and install the package separately.
 2. Install openocd version 0.8 or greater. 
-3. Locate the openocd binary, and find the scripts/board/ek-lm4f120xl.cfg file. It should be under /usr/share or /usr/local/share on Linux.
+3. Locate the openocd binary, and find the `scripts/board/ek-lm4f120xl.cfg` file. It should be under `/usr/share` or `/usr/local/share` on Linux.
 4. Start openocd with the path to the config file. 
 	* on Linux, this would be 
-	```base
+	```bash
 	openocd -f /usr/share/openocd/scripts/board/ek-lm4f120xl.cfg
 	```
 5. In your project directory, start gdb with the path to the payload.bin file. 

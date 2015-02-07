@@ -30,14 +30,17 @@ Real-time debugging the Tiva C through (arm-none-eabi)GDB requires openocd versi
 	openocd -f /usr/share/openocd/scripts/board/ek-lm4f120xl.cfg
 	```
 5. In your project directory, start gdb with the path to the payload.bin file. 
-	```bash
+
+	```
 	arm-none-eabi-gdb payload.bin
 	```
 6. Tell gdb to connect to openocd:
+
 	```
 	target extended-remote :3333
 	```
 7. To reset the microcontroller:
+
 	```
 	monitor reset init
 	```
